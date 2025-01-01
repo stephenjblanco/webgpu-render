@@ -22,7 +22,9 @@
     /* Enable error reporting for expressions and declarations with an implied 'any' type. */
     "noImplicitAny": true,
     /* Skip type checking all .d.ts files. */
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    /* Specify type package names to be included without being referenced in a source file. */
+    "types": ["node", "@webgpu/types"],
   },
   "exclude": ["node_modules", "dist", "webpack.config.js"]
 }
