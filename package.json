@@ -1,0 +1,19 @@
+{
+  "name": "webgpu-render",
+  "version": "1.0.0",
+  "description": "Test renderer implemented in WebGPU.",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run install-dependencies && npm run build && npm run serve",
+    "install-dependencies": "npm i",
+    "build": "webpack --config webpack.config.js",
+    "serve": "http-server"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "http-server": "^14.1.1",
+    "webpack": "^5.79.0",
+    "webpack-cli": "^6.0.1"
+  }
+}
