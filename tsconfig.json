@@ -1,0 +1,28 @@
+/* Visit https://aka.ms/tsconfig to read more about this file */
+{
+  "compilerOptions": {
+    /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
+    "target": "es2016",
+    /* Specify a set of bundled library declaration files that describe the target runtime environment. */
+    "lib": ["ES2017", "DOM"],
+    /* Specify what module code is generated. */
+    "module": "es6",
+    /* Specify how TypeScript looks up a file from a given module specifier. */
+    "moduleResolution": "node10",
+    /* Allow JavaScript files to be a part of your program. Use the 'checkJS' option to get errors from these files. */
+    "allowJs": true,
+    /* Create source map files for emitted JavaScript files. */
+    "sourceMap": true,
+    /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */
+    "esModuleInterop": true,
+    /* Ensure that casing is correct in imports. */
+    "forceConsistentCasingInFileNames": true,
+    /* Enable all strict type-checking options. */
+    "strict": true,
+    /* Enable error reporting for expressions and declarations with an implied 'any' type. */
+    "noImplicitAny": true,
+    /* Skip type checking all .d.ts files. */
+    "skipLibCheck": true
+  },
+  "exclude": ["node_modules", "dist", "webpack.config.js"]
+}
