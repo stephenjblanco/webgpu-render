@@ -1,0 +1,14 @@
+name: Lint
+run-name: Linting commit...
+on: [push]
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "This job was automatically triggered by a ${{ github.event_name }} event."
+      - name: Checking out repository...
+        uses: actions/checkout@v4
+      - name: Installing dependencies...
+        run: npm i
+      - name: Linting repository...
+        run: npm run lint
