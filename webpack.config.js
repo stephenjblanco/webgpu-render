@@ -1,11 +1,12 @@
-import { resolve } from 'path';
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const path = require("path");
 
 module.exports = { 
     context: __dirname,
     entry: "./src/main.ts",
     output: {
         filename: "main.js",
-        path: resolve(__dirname, "dist"),
+        path: path.resolve(__dirname, "dist"),
         publicPath: "/dist/"
     },
     module: {
@@ -28,4 +29,4 @@ module.exports = {
     resolve: {
         extensions: [".ts"]
     }
-}
+};
