@@ -4,23 +4,33 @@
   "description": "Test renderer implemented in WebGPU.",
   "main": "index.js",
   "scripts": {
-    "start": "npm run install-dependencies && npm run build && npm run serve",
-    "install-dependencies": "npm i",
+    "start": "npm i && npm run build && npm run serve",
     "build": "webpack --config webpack.config.js",
-    "serve": "live-server --cors"
+    "serve": "live-server --cors",
+    "lint": "npx prettier -c src && npx eslint",
+    "format": "npx prettier -w src"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@types/node": "^22.10.3",
-    "@webgpu/types": "^0.1.52",
-    "http-server": "^14.1.1",
-    "live-server": "^1.2.2",
-    "node": "^23.5.0",
-    "ts-loader": "^9.5.1",
-    "ts-shader-loader": "^2.0.2",
-    "typescript": "^5.7.2",
-    "webpack": "^5.79.0",
-    "webpack-cli": "^6.0.1"
+    "@types/node": "*",
+    "@webgpu/types": "*",
+    "eslint-config-prettier": "*",
+    "eslint-plugin-prettier": "*",
+    "gl-matrix": "*",
+    "live-server": "*",
+    "node": "*",
+    "prettier": "*",
+    "ts-loader": "*",
+    "ts-shader-loader": "*",
+    "typescript": "*",
+    "webpack": "*",
+    "webpack-cli": "*"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.27.0",
+    "eslint": "^9.27.0",
+    "globals": "^16.1.0",
+    "typescript-eslint": "^8.32.1"
   }
 }

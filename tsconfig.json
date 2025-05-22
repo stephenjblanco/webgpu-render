@@ -2,13 +2,13 @@
 {
   "compilerOptions": {
     /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
-    "target": "es2016",
+    "target": "es2017",
     /* Specify a set of bundled library declaration files that describe the target runtime environment. */
     "lib": ["ES2017", "DOM"],
     /* Specify what module code is generated. */
-    "module": "es6",
+    "module": "es2022",
     /* Specify how TypeScript looks up a file from a given module specifier. */
-    "moduleResolution": "node10",
+    "moduleResolution": "node",
     /* Allow JavaScript files to be a part of your program. Use the 'checkJS' option to get errors from these files. */
     "allowJs": true,
     /* Create source map files for emitted JavaScript files. */
@@ -23,8 +23,13 @@
     "noImplicitAny": true,
     /* Skip type checking all .d.ts files. */
     "skipLibCheck": true,
+    /* Specify multiple folders that act like `./node_modules/@types`. */
+    "typeRoots": [
+      "./node_modules/@webgpu/types",
+      "./node_modules/@types"
+    ],
     /* Specify type package names to be included without being referenced in a source file. */
-    "types": ["node", "@webgpu/types"],
+    //`"types": ["node", "@webgpu/types"],
   },
   "exclude": ["node_modules", "dist", "webpack.config.js"]
 }
