@@ -1,12 +1,35 @@
 import js from "@eslint/js";
-import globals from "globals";
 import tseslint from "typescript-eslint";
 import { defineConfig, globalIgnores } from "eslint/config";
+import stylistic from '@stylistic/eslint-plugin'
 
 
 export default defineConfig([
-  { files: ["src/**/*.{js,mjs,cjs,ts,mts,cts}"], plugins: { js }, extends: ["js/recommended"] },
-  { files: ["src/**/*.{js,mjs,cjs,ts,mts,cts}"], languageOptions: { globals: {...globals.browser, ...globals.node} }},
   tseslint.configs.recommended,
-  globalIgnores(["dist/**", "node_modules/**"]),
+  { 
+    files: ["src/**/*.{js,mjs,cjs,ts,mts,cts}"], 
+    plugins: { 
+      js, 
+      "@stylistic": stylistic 
+    }, 
+    extends: ["js/recommended"],
+    rules: {
+      "no-undef": "off",
+      "@stylistic/indent": ["error", 4],
+      "@stylistic/semi": [
+        "error", 
+        "always",
+        { 
+          "omitLastInOneLineBlock": true,
+          "omitLastInOneLineClassBody": true,
+        }
+      ]
+    }
+  },
+  globalIgnores(
+    [
+      "dist/**", 
+      "node_modules/**"
+    ]
+  ),
 ]);
