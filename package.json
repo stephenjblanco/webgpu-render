@@ -7,20 +7,17 @@
     "start": "npm i && npm run build && npm run serve",
     "build": "webpack --config webpack.config.js",
     "serve": "live-server --cors",
-    "lint": "npx prettier -c src && npx eslint",
-    "format": "npx prettier -w src"
+    "lint": "npx eslint",
+    "lint-fix": "npx eslint --fix"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@types/node": "22.15.21",
     "@webgpu/types": "0.1.60",
-    "eslint-config-prettier": "10.1.5",
-    "eslint-plugin-prettier": "5.4.0",
     "gl-matrix": "3.4.3",
     "live-server": "1.2.2",
     "node": "22.16.0",
-    "prettier": "3.5.3",
     "ts-loader": "9.5.2",
     "ts-shader-loader": "2.0.2",
     "typescript": "5.8.3",
@@ -29,6 +26,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.27.0",
+    "@stylistic/eslint-plugin": "^4.2.0",
     "eslint": "^9.27.0",
     "globals": "^16.1.0",
     "typescript-eslint": "^8.32.1"
