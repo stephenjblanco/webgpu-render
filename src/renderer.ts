@@ -1,6 +1,6 @@
-import shader from './shaders/shaders.wgsl';
-import { Mesh } from './mesh';
-import { mat4 } from 'gl-matrix';
+import shader from "./shaders/shaders.wgsl";
+import { Mesh } from "./mesh";
+import { mat4 } from "gl-matrix";
 
 export class Renderer {
     // device / context
@@ -48,11 +48,11 @@ export class Renderer {
 
         // load lookAt matrix into view matrix
         const view = mat4.create();
-        mat4.lookAt(view, [-2, 0, 2], [0, 0, 0], [0, 0, 1]);
+        mat4.lookAt(view, [ -2, 0, 2 ], [ 0, 0, 0 ], [ 0, 0, 1 ]);
 
         // rotate model matrix t radians around z-axis
         const model = mat4.create();
-        mat4.rotate(model, model, this.t, [0, 0, 1]);
+        mat4.rotate(model, model, this.t, [ 0, 0, 1 ]);
 
         this.device!.queue.writeBuffer(this.uniformBuffer!, 0, <ArrayBuffer>model);
         this.device!.queue.writeBuffer(this.uniformBuffer!, 64, <ArrayBuffer>view);
@@ -68,8 +68,8 @@ export class Renderer {
                 {
                     view: textureView,
                     clearValue: { r: 0.5, g: 0.0, b: 0.25, a: 1.0 },
-                    loadOp: 'clear',
-                    storeOp: 'store',
+                    loadOp: "clear",
+                    storeOp: "store",
                 },
             ],
         });
@@ -80,12 +80,14 @@ export class Renderer {
         renderPass.draw(3, 1, 0, 0);
         renderPass.end();
 
-        this.device!.queue.submit([commandEncoder.finish()]);
+        this.device!.queue.submit([ commandEncoder.finish() ]);
 
         requestAnimationFrame(this.render);
     };
 
-    static async create(canvas: HTMLCanvasElement): Promise<Renderer> {
+    static async create(
+        canvas: HTMLCanvasElement,
+    ): Promise<Renderer> {
         const initializer = new Renderer.Initializer(canvas);
 
         await initializer.setupDevice();
@@ -119,7 +121,9 @@ export class Renderer {
         // assets
         mesh?: Mesh;
 
-        constructor(canvas: HTMLCanvasElement) {
+        constructor(
+            canvas: HTMLCanvasElement,
+        ) {
             this.canvas = canvas;
         }
 
@@ -129,14 +133,14 @@ export class Renderer {
             // device: wrapper around GPU functionality
             this.device = <GPUDevice>await this.adapter!.requestDevice();
             // context: WGPU context
-            this.context = <GPUCanvasContext>this.canvas.getContext('webgpu');
+            this.context = <GPUCanvasContext>this.canvas.getContext("webgpu");
             // format: pixel format, four 8-bit unsigned ints in BGRA order
-            this.format = 'bgra8unorm';
+            this.format = "bgra8unorm";
 
             this.context.configure({
                 device: this.device,
                 format: this.format,
-                alphaMode: 'opaque',
+                alphaMode: "opaque",
             });
         }
 
@@ -171,21 +175,21 @@ export class Renderer {
             });
 
             const pipelineLayout = this.device!.createPipelineLayout({
-                bindGroupLayouts: [bindGroupLayout],
+                bindGroupLayouts: [ bindGroupLayout ],
             });
 
             this.pipeline = this.device!.createRenderPipeline({
                 vertex: {
                     module: this.device!.createShaderModule({ code: shader }),
-                    entryPoint: 'vs_main',
-                    buffers: [this.mesh!.bufferLayout],
+                    entryPoint: "vs_main",
+                    buffers: [ this.mesh!.bufferLayout ],
                 },
                 fragment: {
                     module: this.device!.createShaderModule({ code: shader }),
-                    entryPoint: 'fs_main',
-                    targets: [{ format: this.format! }],
+                    entryPoint: "fs_main",
+                    targets: [ { format: this.format! } ],
                 },
-                primitive: { topology: 'triangle-list' },
+                primitive: { topology: "triangle-list" },
                 layout: pipelineLayout,
             });
         }
