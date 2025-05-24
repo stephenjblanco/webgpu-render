@@ -1,13 +1,9 @@
 name: Build
 run-name: Building project...
-on: 
-  workflow_run:
-    workflows: [Lint]
-    types: [completed]
+on:  [push]
 jobs:
   build:
     runs-on: ubuntu-24.04
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - name: Checking out repository...
         uses: actions/checkout@v4
