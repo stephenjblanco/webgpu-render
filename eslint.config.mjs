@@ -141,6 +141,10 @@ export default defineConfig([
                     "after": true,
                 },
             ],
+            "@stylistic/eol-last": [
+                "error",
+                "always",
+            ],
         },
     },
     globalIgnores(
