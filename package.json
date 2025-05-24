@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npm i && npm run build && npm run serve",
-    "build": "webpack --config webpack.config.js",
+    "build": "webpack --mode=development --config webpack.config.js",
     "serve": "live-server --cors",
     "lint": "npx eslint",
     "lint-fix": "npx eslint --fix"
@@ -13,16 +13,16 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@types/node": "22.15.21",
-    "@webgpu/types": "0.1.60",
-    "gl-matrix": "3.4.3",
-    "live-server": "1.2.2",
-    "node": "22.16.0",
-    "ts-loader": "9.5.2",
-    "ts-shader-loader": "2.0.2",
-    "typescript": "5.8.3",
-    "webpack": "5.99.9",
-    "webpack-cli": "6.0.1"
+    "@types/node": "^22.15.21",
+    "@webgpu/types": "^0.1.60",
+    "gl-matrix": "^3.4.3",
+    "live-server": "^1.2.2",
+    "node": "^22.16.0",
+    "ts-loader": "^9.5.2",
+    "ts-shader-loader": "^2.0.2",
+    "typescript": "^5.8.3",
+    "webpack": "^5.99.9",
+    "webpack-cli": "^6.0.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.27.0",

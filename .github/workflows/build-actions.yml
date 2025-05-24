@@ -1,0 +1,13 @@
+name: Build
+run-name: Building project...
+on:  [push]
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checking out repository...
+        uses: actions/checkout@v4
+      - name: Installing dependencies...
+        run: npm i
+      - name: Building project...
+        run: npm run build

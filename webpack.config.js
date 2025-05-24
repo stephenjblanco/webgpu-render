@@ -1,13 +1,13 @@
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const path = require("path");
 
-module.exports = { 
+module.exports = {
     context: __dirname,
     entry: "./src/main.ts",
     output: {
         filename: "main.js",
         path: path.resolve(__dirname, "dist"),
-        publicPath: "/dist/"
+        publicPath: "/dist/",
     },
     module: {
         rules: [
@@ -15,18 +15,18 @@ module.exports = {
                 test: /\.ts$/,
                 exclude: /node_modules/,
                 use: {
-                    loader: "ts-loader"
-                }
+                    loader: "ts-loader",
+                },
             },
             {
                 test: /\.wgsl$/,
                 use: {
-                    loader: "ts-shader-loader"
-                }
-            }
-        ]
+                    loader: "ts-shader-loader",
+                },
+            },
+        ],
     },
     resolve: {
-        extensions: [".ts"]
-    }
+        extensions: [ ".ts" ],
+    },
 };

@@ -1,0 +1,13 @@
+name: Lint
+run-name: Linting commit...
+on: [push]
+jobs:
+  lint:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checking out repository...
+        uses: actions/checkout@v4
+      - name: Installing dependencies...
+        run: npm i
+      - name: Linting repository...
+        run: npm run lint
